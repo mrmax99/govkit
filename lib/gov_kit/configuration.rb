@@ -3,6 +3,7 @@ module GovKit
     attr_accessor :sunlight_apikey, :openstates_base_url, :transparency_data_base_url, :transparency_data_categories_url
     attr_accessor :votesmart_apikey, :votesmart_base_url
     attr_accessor :openstates_apikey, :ftm_apikey, :ftm_base_url
+    attr_accessor :opencongress_sunlight_base_url
     attr_accessor :opencongress_apikey, :opencongress_base_url
     attr_accessor :technorati_apikey, :technorati_base_url
     attr_accessor :google_blog_base_url, :google_news_base_url
@@ -16,6 +17,7 @@ module GovKit
       @votesmart_base_url = 'api.votesmart.org'
       @ftm_base_url = 'api.followthemoney.org'
       @opencongress_base_url = 'api.opencongress.org'
+      @opencongress_sunlight_base_url = 'congress.api.sunlightfoundation.com'
       @technorati_base_url = 'api.technorati.com'
       @bing_base_url = 'api.search.live.net'
       @google_blog_base_url = 'blogsearch.google.com'

@@ -26,6 +26,7 @@ require 'gov_kit/configuration'
 module GovKit
   autoload :Resource, 'gov_kit/resource'
   autoload :OpenStates, 'gov_kit/open_states'
+  autoload :OpenCongressSl, 'gov_kit/open_congress_sl'
   autoload :TransparencyData, 'gov_kit/transparency_data'
   autoload :VoteSmart, 'gov_kit/vote_smart'
   autoload :ActsAsNoteworthy, 'gov_kit/acts_as_noteworthy'

@@ -12,6 +12,9 @@ module GovKit::OpenCongress
   autoload :Person,             'gov_kit/open_congress/person'
   autoload :PersonStat,         'gov_kit/open_congress/person_stat'
 
+  OC = 0 # this is for opencongress api
+  SL = 1 # this is for the sunlight api for opencongress
+
   # Parent class for classes that wrap {http://www.opencongress.org/api OpenCongress data}.
   #
   # Unlike the wrapper classes for data from {FollowTheMoneyResource FollowTheMoney}, 
@@ -30,10 +33,16 @@ module GovKit::OpenCongress
 
     # Create a query url, by adding the method path and query parameters to the
     # base url of {http://www.opencongress.org/api}.
-    def self.construct_url(api_method, params)
+    def self.construct_url(api_method, params, apichoice=OC)
       url = nil
-      getkey = GovKit::configuration.opencongress_apikey.nil? ? "" : "&key=#{GovKit::configuration.opencongress_apikey}"
-      url = "http://#{GovKit::configuration.opencongress_base_url}/#{api_method}?format=json#{hash2get(params)}#{getkey}"
+      if apichoice == OC
+        getkey = GovKit::configuration.opencongress_apikey.nil? ? "" : "&key=#{GovKit::configuration.opencongress_apikey}"
+        url = "http://#{GovKit::configuration.opencongress_base_url}/#{api_method}?format=json#{hash2get(params)}#{getkey}"
+      elsif apichoice == SL
+        getkey = "&apikey=#{GovKit::configuration.sunlight_apikey}"
+        url = "https://#{GovKit::configuration.opencongress_sunlight_base_url}/#{api_method}?format=json#{hash2get(params)}#{getkey}"
+      end
+      puts url # this line helps debug what's wrong with a find command
       return url
     end
 

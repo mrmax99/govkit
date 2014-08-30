@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
     "lib/gov_kit/open_congress/roll_call_comparison.rb",
     "lib/gov_kit/open_congress/voting_comparison.rb",
     "lib/gov_kit/open_states.rb",
+    "lib/gov_kit/open_congress_sl.rb",
     "lib/gov_kit/railtie.rb",
     "lib/gov_kit/resource.rb",
     "lib/gov_kit/search_engines.rb",
